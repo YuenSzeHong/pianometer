@@ -553,7 +553,9 @@ input[type=checkbox] {
 }
 
 label[for=rainbow-mode-checkbox],
-label[for=display-note-names-checkbox] {
+label[for=display-note-names-checkbox],
+label[for=audio-enabled-checkbox],
+label[for=ignore-velocity-checkbox] {
     cursor: pointer;
     width: 50px;
     height: 25px;
@@ -565,7 +567,9 @@ label[for=display-note-names-checkbox] {
 }
 
 label[for=rainbow-mode-checkbox]:after,
-label[for=display-note-names-checkbox]:after {
+label[for=display-note-names-checkbox]:after,
+label[for=audio-enabled-checkbox]:after,
+label[for=ignore-velocity-checkbox]:after {
     content: '';
     position: absolute;
     top: 1.25px;
@@ -578,17 +582,23 @@ label[for=display-note-names-checkbox]:after {
 }
 
 input:checked + label[for=rainbow-mode-checkbox],
-input:checked + label[for=display-note-names-checkbox] {
+input:checked + label[for=display-note-names-checkbox],
+input:checked + label[for=audio-enabled-checkbox],
+input:checked + label[for=ignore-velocity-checkbox] {
     background: #6f42c1;
 }
 
 label[for=rainbow-mode-checkbox]:active:after,
-label[for=display-note-names-checkbox]:active:after {
+label[for=display-note-names-checkbox]:active:after,
+label[for=audio-enabled-checkbox]:active:after,
+label[for=ignore-velocity-checkbox]:active:after {
     width: 32.5px;
 }
 
 input:checked + label[for=rainbow-mode-checkbox]:after,
-input:checked + label[for=display-note-names-checkbox]:after {
+input:checked + label[for=display-note-names-checkbox]:after,
+input:checked + label[for=audio-enabled-checkbox]:after,
+input:checked + label[for=ignore-velocity-checkbox]:after {
     left: calc(100% - 1.25px);
     transform: translateX(-100%);
 }

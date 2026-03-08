@@ -57,10 +57,10 @@ WebMidi.enable(function (err) { //check if WebMidi.js is enabled
     for (i = 0; i < WebMidi.outputs.length; i++) {
         console.log(i + ": " + WebMidi.outputs[i].name);
     }
-    midiSelectSlider = select("#slider");
-    midiSelectSlider.attribute("max", WebMidi.inputs.length - 1);
-    midiSelectSlider.input(inputChanged);
-    midiIn = WebMidi.inputs[midiSelectSlider.value()]
+    midiSelectSlider = document.querySelector("#slider");
+    midiSelectSlider.setAttribute("max", WebMidi.inputs.length - 1);
+    midiSelectSlider.addEventListener('input', inputChanged);
+    midiIn = WebMidi.inputs[midiSelectSlider.value]
     inputChanged();
 });
 
@@ -70,7 +70,7 @@ function inputChanged() {
     controllerChange(67, 0);
 
     midiIn.removeListener();
-    midiIn = WebMidi.inputs[midiSelectSlider.value()];
+    midiIn = WebMidi.inputs[midiSelectSlider.value];
     midiIn.addListener('noteon', "all", function (e) {
         console.log("Received 'noteon' message (" + e.note.number + ", " + e.velocity + ").");
         noteOn(e.note.number, e.velocity);
@@ -84,7 +84,7 @@ function inputChanged() {
         controllerChange(e.controller.number, e.value)
       });
     console.log(midiIn.name);
-    select("#device").html(midiIn.name);
+    document.querySelector("#device").innerHTML = midiIn.name;
 };
 
 function noteOn(pitch, velocity) {
@@ -97,10 +97,13 @@ function noteOn(pitch, velocity) {
     if (nowPedaling) {
       isPedaled[pitch] = 1;
     }
+
+    startNote(pitch, velocity);
 }
 
 function noteOff(pitch, velocity) {
     isKeyOn[pitch] = 0;
+    stopNote(pitch);
 }
 
 function controllerChange(number, value) {

@@ -8,6 +8,7 @@
     <script src="tonal.min.js"></script>
 
     <script src="webmidi.js"></script>
+    <script src="audio.js"></script>
     <script src="globals.js"></script>
     <script src="piano-visualizer.js"></script>
 </head>
@@ -39,6 +40,20 @@
                             <span style="margin-right: 5px;">顯示音名</span>
                             <input type="checkbox" id="display-note-names-checkbox" onclick="toggleDisplayNoteNames(this)">
                             <label for="display-note-names-checkbox">
+                                <span class="switch-txt" turnOn="On" turnOff="Off"></span>
+                            </label>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <span style="margin-right: 5px;">播放聲音</span>
+                            <input type="checkbox" id="audio-enabled-checkbox" onclick="toggleAudio(this)">
+                            <label for="audio-enabled-checkbox">
+                                <span class="switch-txt" turnOn="On" turnOff="Off"></span>
+                            </label>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <span style="margin-right: 5px;">固定音量</span>
+                            <input type="checkbox" id="ignore-velocity-checkbox" onclick="toggleIgnoreVelocity(this)">
+                            <label for="ignore-velocity-checkbox">
                                 <span class="switch-txt" turnOn="On" turnOff="Off"></span>
                             </label>
                         </div>
